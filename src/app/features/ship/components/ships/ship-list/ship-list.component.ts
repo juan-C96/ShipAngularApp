@@ -4,6 +4,8 @@ import { ShipService } from '../../../services/ship.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Ship } from '../../../../../models/ship.model';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-ship-list',
@@ -17,7 +19,10 @@ export class ShipListComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private shipService: ShipService) {}
+  constructor(
+    private shipService: ShipService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.loadShips();
@@ -41,14 +46,23 @@ export class ShipListComponent implements OnInit, AfterViewInit {
   }
 
   loader() {
-    console.log(this.ships)
+    this.loadShips();
+    console.log(this.ships);
   }
 
   updateShip(element: any) {
 
   }
 
-  deleteShip(element: any) {
+  deleteShip(ship: Ship): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.shipService.deleteShip(ship.id).subscribe(() => {
+          this.loadShips();
+        });
+      }
+    });
   }
 }
