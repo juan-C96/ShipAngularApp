@@ -1,0 +1,12 @@
+<div class="container">
+    <aside class="sidebar">
+      <app-menu (optionSelected)="handleOptionSelected($event)"></app-menu>
+    </aside>
+    <main class="content">
+      @switch (openedMenu) {
+        @case (1) {
+          <app-ship-list></app-ship-list>
+        }
+      }
+    </main>
+  </div>

@@ -1,0 +1,9 @@
+<section>
+    <div class="menu-label" [innerText]="'Menu'"></div>
+    <div class="menu-button-row">
+        <ng-container *ngFor="let option of options; let last = last">
+            <button mat-button (click)="onOptionClick(option.id)" [innerHTML]="option.name"></button>
+            <mat-divider *ngIf="!last"></mat-divider>
+        </ng-container>
+    </div>
+</section>
