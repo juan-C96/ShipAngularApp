@@ -5,12 +5,13 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ShipListComponent } from './ship-list/ship-list.component';
 import { ShipService } from '../../services/ship.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { TitleCasePipe } from '../../../../pipes/title-case.pipe';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { ShipFilterComponent } from '../ship-filter/ship-filter.component';
+import { ShipFormComponent } from '../ship-form/ship-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ShipFilterComponent } from '../ship-filter/ship-filter.component';
     ShipListComponent
   ],
   providers: [
-    ShipService
+    ShipService,
+    ShipFormComponent
   ],
 })
 export class ShipsModule { }

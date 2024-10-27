@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Ship } from '../../../models/ship.model';
+import { Ship } from '../../../models/Ship.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +28,8 @@ export class ShipService {
   }
 
   // Update a ship
-  updateShip(ship: Ship): Observable<Ship> {
-    return this.http.put<Ship>(`${this.apiUrl}/${ship.id}`, ship);
+  updateShip(currentShipId: number | null, ship: Ship): Observable<Ship> {
+    return this.http.put<Ship>(`${this.apiUrl}/${currentShipId}`, ship);
   }
 
   // Delete a ship

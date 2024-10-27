@@ -1,19 +1,13 @@
 import { Component } from '@angular/core';
 import { ComponentsModule } from '../../components/components.module';
+import { ShipsModule } from '../../components/ships/ships.module';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [ ComponentsModule ],
+  imports: [ ComponentsModule, ShipsModule ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
 export class MainComponent {
-
-  openedMenu: number = 1;
-
-  handleOptionSelected(optionId: number) {
-    console.log('Opción seleccionada:', optionId);
-    this.openedMenu = optionId;
-  }
 }

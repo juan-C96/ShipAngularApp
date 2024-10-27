@@ -1,0 +1,37 @@
+<div class="dialog-container container">
+    <div class="dialog-body">
+<h1 mat-dialog-title [innerHTML]="'Confirmation'"></h1>
+        <div mat-dialog-content>
+<form [formGroup]="shipForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label [innerHTML]="'Name'"></mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="shipForm.get('name')?.hasError('required')" [innerHTML]="'Name is required.'"></mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+        <mat-label [innerHTML]="'Speed'"></mat-label>
+        <input matInput type="number" formControlName="speed">
+        <mat-error *ngIf="shipForm.get('speed')?.hasError('required')" [innerHTML]="'Speed is required.'"></mat-error>
+      </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label [innerHTML]="'Fuel Capacity'"></mat-label>
+      <input matInput type="number" formControlName="fuelCapacity">
+      <mat-error *ngIf="shipForm.get('fuelCapacity')?.hasError('required')" [innerHTML]="'Fuel Capacity is required.'"></mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label [innerHTML]="'Cargo Capacity'"></mat-label>
+      <input matInput type="number" formControlName="cargoCapacity">
+      <mat-error *ngIf="shipForm.get('cargoCapacity')?.hasError('required')" [innerHTML]="'Cargo Capacity is required.'"></mat-error>
+    </mat-form-field>
+  </form>
+
+</div>
+<div mat-dialog-actions>
+<button mat-button (click)="onCancel()" [innerHTML]="'Cancel'"></button>
+<button mat-button color="warn" (click)="onSubmit()" [innerHTML]="isEditMode ? 'Update Ship' : 'Add Ship'"></button>
+</div>
+</div>

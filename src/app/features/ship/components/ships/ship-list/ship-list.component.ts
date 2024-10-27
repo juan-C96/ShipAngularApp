@@ -3,9 +3,10 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ShipService } from '../../../services/ship.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { Ship } from '../../../../../models/ship.model';
+import { Ship } from '../../../../../models/Ship.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
+import { ShipFormComponent } from '../../ship-form/ship-form.component';
 
 @Component({
   selector: 'app-ship-list',
@@ -47,11 +48,28 @@ export class ShipListComponent implements OnInit, AfterViewInit {
 
   loader() {
     this.loadShips();
-    console.log(this.ships);
   }
 
-  updateShip(element: any) {
-
+  newShip() {
+    const dialogRef = this.dialog.open(ShipFormComponent, {
+      width: '400px',
+      data: { isEditMode: false }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      this.loadShips();
+    });
+  }
+  
+  updateShip(ship: Ship) {
+    const dialogRef = this.dialog.open(ShipFormComponent, {
+      width: '400px',
+      data: { isEditMode: true, id: ship.id }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      this.loadShips();
+    });
   }
 
   deleteShip(ship: Ship): void {

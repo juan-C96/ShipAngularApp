@@ -2,6 +2,7 @@
 <div class="loader-button-container">
     <app-ship-filter (filterChange)="applyFilter($event)"></app-ship-filter>
     <button mat-flat-button (click)="loader()" [innerHTML]="'Load Ships'"></button>
+    <button mat-flat-button (click)="newShip()" [innerHTML]="'New Ships'"></button>
 </div>
 
 <div class="mat-elevation-z8">

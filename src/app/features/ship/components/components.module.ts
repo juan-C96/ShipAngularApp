@@ -1,26 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShipsModule } from './ships/ships.module';
-import { MenuComponent } from './menu/menu.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ShipService } from '../services/ship.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ShipFormComponent } from './ship-form/ship-form.component';
 
 @NgModule({
   declarations: [
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ShipFormComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    MatButtonModule, 
-    ShipsModule,
-    MenuComponent
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule, 
+    ShipsModule
   ], 
   exports: [
-    MenuComponent,
-    ShipsModule,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ShipFormComponent
+  ],
+  providers: [
+    ShipService
   ]
 })
 export class ComponentsModule { }
