@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TitleCasePipe } from '../../../../pipes/title-case.pipe';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { ShipFilterComponent } from '../ship-filter/ship-filter.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,14 @@ import { MatIconModule } from '@angular/material/icon';
     MatMenuModule, 
     MatIconModule,
     HttpClientModule,
-    TitleCasePipe
+    TitleCasePipe,
+    ShipFilterComponent
   ],
   exports: [
     ShipListComponent
   ],
-  providers: [ShipService],
+  providers: [
+    ShipService
+  ],
 })
 export class ShipsModule { }

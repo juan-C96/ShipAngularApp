@@ -1,0 +1,6 @@
+<div class="ship-filter">
+    <mat-form-field appearance="fill">
+      <mat-label [innerText]="'Search by ID or Name'"></mat-label>
+      <input matInput [(ngModel)]="searchTerm" (input)="onSearchChange()" placeholder="Enter ID or Name" />
+    </mat-form-field>
+</div>

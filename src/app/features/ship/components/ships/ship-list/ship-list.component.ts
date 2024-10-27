@@ -65,4 +65,12 @@ export class ShipListComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  applyFilter(filterValue: string): void {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    this.dataSource.filterPredicate = (data: Ship, filter: string) => {
+      return data.id.toString().includes(filter) || data.name.toLowerCase().includes(filter);
+    }
+  }
 }

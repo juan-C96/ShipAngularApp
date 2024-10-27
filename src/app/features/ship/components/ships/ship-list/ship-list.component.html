@@ -1,4 +1,6 @@
+
 <div class="loader-button-container">
+    <app-ship-filter (filterChange)="applyFilter($event)"></app-ship-filter>
     <button mat-flat-button (click)="loader()" [innerHTML]="'Load Ships'"></button>
 </div>
 

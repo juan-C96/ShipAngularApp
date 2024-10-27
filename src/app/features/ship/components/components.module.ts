@@ -4,6 +4,7 @@ import { ShipsModule } from './ships/ships.module';
 import { MenuComponent } from './menu/menu.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MatButtonModule, 
     ShipsModule,
     MenuComponent
